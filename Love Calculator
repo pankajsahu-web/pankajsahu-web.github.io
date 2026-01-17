@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💖 Love Quiz For You 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff5f9e, #ff9a9e, #fad0c4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ff2d75;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff004f;
+}
+
+.hidden {
+    display: none;
+}
+
+.emoji {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.result {
+    font-size: 20px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💖 Love & Truth Quiz 💖</h1>
+    <p class="emoji">🥰😍😘</p>
+
+    <!-- Question Area -->
+    <div id="quiz">
+        <div class="question" id="questionText"></div>
+        <input type="text" id="answer" placeholder="Type your answer 💌">
+        <button onclick="nextQuestion()">Next 💕</button>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="hidden">
+        <h2>💘 Final Love Result 💘</h2>
+        <p class="result" id="scoreText"></p>
+        <p class="emoji">❤️💋💞💍</p>
+    </div>
+</div>
+
+<script>
+const questions = [
+    "💭 Truth: What do you like most about me? 😍",
+    "😜 Dare: Send me your cutest selfie right now 📸",
+    "💖 Truth: When did you first fall for me? 💕",
+    "🥰 Truth: What nickname do you love calling me?",
+    "🔥 Dare: Say 'I love you' in your cutest way 😘",
+    "💌 Quiz: What is my favorite color?",
+    "🎶 Quiz: What song reminds you of me?",
+    "💑 Truth: Do you see a future with me? ❤️"
+];
+
+let current = 0;
+let score = 0;
+
+function nextQuestion() {
+    const ans = document.getElementById("answer").value.trim();
+    if(ans !== "") score++;
+
+    current++;
+    document.getElementById("answer").value = "";
+
+    if(current < questions.length) {
+        document.getElementById("questionText").innerText = questions[current];
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    document.getElementById("quiz").classList.add("hidden");
+    document.getElementById("result").classList.remove("hidden");
+
+    let percentage = Math.min(100, Math.floor((score / questions.length) * 100 + 20));
+
+    let message = "";
+    if (percentage >= 90) message = "💍 You know me perfectly & love me deeply 😍";
+    else if (percentage >= 70) message = "💖 Strong love & great understanding 🥰";
+    else if (percentage >= 50) message = "💞 Cute love, still growing 😘";
+    else message = "💔 Hmm… I need more love 😜";
+
+    document.getElementById("scoreText").innerHTML =
+        `You Know Me: <b>${percentage}%</b><br>${message}`;
+}
+
+// Load first question
+document.getElementById("questionText").innerText = questions[0];
+</script>
+
+</body>
+</html>
