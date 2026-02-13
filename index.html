@@ -3,232 +3,828 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pankaj Kumar | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <title>💕 For My Valentine 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --pink: #FF6B9D;
+            --rose: #FFC2D1;
+            --peach: #FFE5EC;
+            --cream: #FFF0F5;
+            --wine: #C85A8E;
+            --accent: #FF1744;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-            color: #fff;
-            line-height: 1.6;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--peach) 0%, var(--rose) 50%, var(--pink) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 15s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
         }
 
         header {
-            padding: 60px 20px;
             text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
         }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4em;
+            color: var(--wine);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(200, 90, 142, 0.3);
+            animation: pulse 2s infinite;
         }
 
-        header span {
-            color: #ff9800;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        header p {
+        .tagline {
+            font-size: 1.4em;
+            color: var(--wine);
+            font-weight: 600;
             margin-top: 10px;
-            font-size: 1.2rem;
-            color: #ccc;
         }
 
-        section {
-            padding: 60px 10%;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.3);
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+            backdrop-filter: blur(10px);
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            border-left: 5px solid #ff9800;
-            padding-left: 15px;
-        }
-
-        .about p {
-            max-width: 800px;
-            color: #ddd;
-        }
-
-        .skills, .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);
-        }
-
-        .card h3 {
-            color: #ff9800;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #ccc;
-        }
-
-        /* Learning Journey */
-        .journey .card {
-            cursor: pointer;
-        }
-
-        .journey .card a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .journey span {
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-        .contact {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            color: var(--pink);
+            margin-bottom: 25px;
             text-align: center;
         }
 
-        .contact a {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            background: #ff9800;
-            color: #000;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .contact a:hover {
-            background: #ffa733;
-        }
-
-        footer {
+        .cheesy-line {
+            font-size: 1.3em;
+            color: var(--wine);
             text-align: center;
             padding: 20px;
-            background: #111;
-            color: #777;
+            background: linear-gradient(135deg, var(--cream), var(--peach));
+            border-radius: 20px;
+            margin: 20px 0;
+            font-weight: 600;
+            line-height: 1.6;
+            border-left: 5px solid var(--pink);
         }
 
-        @media(max-width: 600px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
+        .gif-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        /* Quiz Section */
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: var(--wine);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quiz-btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--pink), var(--wine));
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
+        }
+
+        .quiz-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--peach), var(--rose));
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            color: var(--wine);
+            font-weight: 600;
+            display: none;
+        }
+
+        .quiz-result.show {
+            display: block;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Love Meter */
+        .love-meter {
+            text-align: center;
+        }
+
+        .meter-container {
+            width: 100%;
+            height: 40px;
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: inset 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--pink), var(--accent));
+            border-radius: 20px;
+            transition: width 2s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .rate-btn {
+            padding: 18px 50px;
+            font-size: 1.3em;
+            background: linear-gradient(135deg, var(--accent), var(--pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 6px 20px rgba(255, 23, 68, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .rate-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.7);
+        }
+
+        .meter-result {
+            font-size: 1.5em;
+            color: var(--wine);
+            margin-top: 20px;
+            font-weight: 700;
+            display: none;
+        }
+
+        .meter-result.show {
+            display: block;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Emoji decorations */
+        .emoji-line {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--wine);
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Message box */
+        .message-box {
+            background: linear-gradient(135deg, var(--rose), var(--pink));
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+            line-height: 1.8;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
+        }
+
+        .message-box strong {
+            font-size: 1.3em;
+            font-family: 'Pacifico', cursive;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .section { padding: 25px; }
+            .cheesy-line { font-size: 1.1em; }
+            .quiz-btn { padding: 12px 30px; font-size: 1em; }
         }
     </style>
 </head>
 <body>
+    <div class="heart-bg" id="heartBg"></div>
 
-<header>
-    <h1>Hi, I'm <span>Pankaj Kumar</span></h1>
-    <p>Web Developer | Student | Tech Enthusiast</p>
-</header>
+    <div class="container">
+        <header>
+            <h1>💕 Happy Valentine's Day! 💕</h1>
+            <p class="tagline">To the most amazing person in the world ✨</p>
+        </header>
 
-<section class="about">
-    <h2>About Me</h2>
-    <p>
-        I am a passionate web developer and learner who loves building clean,
-        responsive websites and small projects. This portfolio shows my
-        learning journey lecture by lecture with practical work.
-    </p>
-</section>
+        <main>
+            <!-- Cheesy Lines Section -->
+            <section class="section">
+                <h2>💌 Sweet Messages 💌</h2>
+                <div class="emoji-line">🌹 💖 🌹</div>
+                
+                <div class="cheesy-line">
+                    "Are you a magician? Because whenever I look at you, everyone else disappears! 🪄✨"
+                </div>
 
-<section>
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="card"><h3>HTML</h3><p>Semantic & SEO friendly markup</p></div>
-        <div class="card"><h3>CSS</h3><p>Responsive layouts, animations</p></div>
-        <div class="card"><h3>JavaScript</h3><p>Interactive UI & logic</p></div>
-        <div class="card"><h3>Git & GitHub</h3><p>Version control & hosting</p></div>
+                <div class="cheesy-line">
+                    "If kisses were snowflakes, I'd send you a blizzard! ❄️💋"
+                </div>
+
+                <div class="cheesy-line">
+                    "You're the peanut butter to my jelly, the cheese to my macaroni! 🥜🧀"
+                </div>
+
+                <div class="emoji-line">💝 <span class="sparkle">⭐</span> 💝</div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section class="section">
+                <h2>💘 Love Quiz 💘</h2>
+                
+                <div class="quiz-question">
+                    <p class="question-text">1. Do you know you're absolutely beautiful? 😍</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="answerQuiz(1, 'yes')">Yes! 💕</button>
+                        <button class="quiz-btn" onclick="answerQuiz(1, 'no')">No 🥺</button>
+                    </div>
+                    <div class="quiz-result" id="result1"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/26u4cqiYI30juCOGY/giphy.gif" alt="Love GIF" style="max-width: 300px;">
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">2. What's your favorite thing about us? 💑</p>
+                    <div class="quiz-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 600px; margin: 0 auto;">
+                        <button class="quiz-btn" onclick="answerQuiz(2, 'cuddles')">Our cuddles 🤗</button>
+                        <button class="quiz-btn" onclick="answerQuiz(2, 'laughs')">Our laughs 😂</button>
+                        <button class="quiz-btn" onclick="answerQuiz(2, 'adventures')">Adventures 🌍</button>
+                        <button class="quiz-btn" onclick="answerQuiz(2, 'everything')">Everything! 💯</button>
+                    </div>
+                    <div class="quiz-result" id="result2"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">3. Will you be my Valentine forever? 💍</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="answerQuiz(3, 'yes')">Yes! 💖</button>
+                        <button class="quiz-btn" onclick="answerQuiz(3, 'no')">No 💔</button>
+                    </div>
+                    <div class="quiz-result" id="result3"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/l0IypeKl9NJhPFMrK/giphy.gif" alt="Hearts GIF" style="max-width: 300px;">
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">4. What should our next date be? 🎉</p>
+                    <div class="quiz-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 600px; margin: 0 auto;">
+                        <button class="quiz-btn" onclick="answerQuiz(4, 'movie')">Movie night 🎬</button>
+                        <button class="quiz-btn" onclick="answerQuiz(4, 'dinner')">Fancy dinner 🍝</button>
+                        <button class="quiz-btn" onclick="answerQuiz(4, 'adventure')">Adventure 🏞️</button>
+                        <button class="quiz-btn" onclick="answerQuiz(4, 'cozy')">Cozy night in 🏠</button>
+                    </div>
+                    <div class="quiz-result" id="result4"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/xUOrw5LIxb8S9X1LGg/giphy.gif" alt="Date GIF" style="max-width: 300px;">
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">5. Do you love me as much as I love you? 🥰</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="answerQuiz(5, 'yes')">Yes! 💗</button>
+                        <button class="quiz-btn" onclick="answerQuiz(5, 'no')">No 😢</button>
+                    </div>
+                    <div class="quiz-result" id="result5"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">6. Which emoji describes us best? 😊</p>
+                    <div class="quiz-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 600px; margin: 0 auto;">
+                        <button class="quiz-btn" onclick="answerQuiz(6, 'heart-eyes')">😍 Heart Eyes</button>
+                        <button class="quiz-btn" onclick="answerQuiz(6, 'fire')">🔥 On Fire</button>
+                        <button class="quiz-btn" onclick="answerQuiz(6, 'stars')">✨ Magical</button>
+                        <button class="quiz-btn" onclick="answerQuiz(6, 'perfect')">💯 Perfect</button>
+                    </div>
+                    <div class="quiz-result" id="result6"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" alt="Happy GIF" style="max-width: 300px;">
+                </div>
+            </section>
+
+            <!-- Rating Questions Section -->
+            <section class="section">
+                <h2>💝 Rate Our Love 💝</h2>
+                <div class="emoji-line">⭐ 💖 ⭐</div>
+
+                <div class="quiz-question">
+                    <p class="question-text">On a scale of 0-9, how much do you love me? 💕</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <input type="number" id="loveRating" min="0" max="9" 
+                               style="width: 80px; padding: 15px; font-size: 2em; text-align: center; 
+                                      border: 3px solid var(--pink); border-radius: 15px; 
+                                      font-family: 'Quicksand', sans-serif; font-weight: 700;
+                                      background: var(--cream);">
+                        <button class="quiz-btn" onclick="checkLoveRating()" style="display: block; margin: 20px auto;">
+                            Submit 💖
+                        </button>
+                    </div>
+                    <div class="quiz-result" id="loveRatingResult"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/141amBdjqs9Vvy/giphy.gif" alt="Love rating GIF" style="max-width: 300px;">
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">Rate our first kiss! 💋 (0-9)</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <input type="number" id="kissRating" min="0" max="9" 
+                               style="width: 80px; padding: 15px; font-size: 2em; text-align: center; 
+                                      border: 3px solid var(--pink); border-radius: 15px; 
+                                      font-family: 'Quicksand', sans-serif; font-weight: 700;
+                                      background: var(--cream);">
+                        <button class="quiz-btn" onclick="checkKissRating()" style="display: block; margin: 20px auto;">
+                            Submit 💋
+                        </button>
+                    </div>
+                    <div class="quiz-result" id="kissRatingResult"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/KztT2c4u8mYYUiMKdJ/giphy.gif" alt="Kiss GIF" style="max-width: 300px;">
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">How cute are we together? 🥰 (0-9)</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <input type="number" id="cuteRating" min="0" max="9" 
+                               style="width: 80px; padding: 15px; font-size: 2em; text-align: center; 
+                                      border: 3px solid var(--pink); border-radius: 15px; 
+                                      font-family: 'Quicksand', sans-serif; font-weight: 700;
+                                      background: var(--cream);">
+                        <button class="quiz-btn" onclick="checkCuteRating()" style="display: block; margin: 20px auto;">
+                            Submit 💑
+                        </button>
+                    </div>
+                    <div class="quiz-result" id="cuteRatingResult"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/3o6UBhjHobLFgEmrJu/giphy.gif" alt="Cute couple GIF" style="max-width: 300px;">
+                </div>
+
+                <div class="quiz-question">
+                    <p class="question-text">Rate how much you miss me when we're apart! 😢 (0-9)</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <input type="number" id="missRating" min="0" max="9" 
+                               style="width: 80px; padding: 15px; font-size: 2em; text-align: center; 
+                                      border: 3px solid var(--pink); border-radius: 15px; 
+                                      font-family: 'Quicksand', sans-serif; font-weight: 700;
+                                      background: var(--cream);">
+                        <button class="quiz-btn" onclick="checkMissRating()" style="display: block; margin: 20px auto;">
+                            Submit 💔
+                        </button>
+                    </div>
+                    <div class="quiz-result" id="missRatingResult"></div>
+                </div>
+
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/3oEdv5e5Zd2gsczAli/giphy.gif" alt="Missing you GIF" style="max-width: 300px;">
+                </div>
+            </section>
+
+            <!-- Love Meter Section -->
+            <section class="section">
+                <h2>💗 Rate My Love 💗</h2>
+                <div class="emoji-line">😘 💕 😘</div>
+                
+                <div class="love-meter">
+                    <p style="font-size: 1.2em; color: var(--wine); margin-bottom: 20px; font-weight: 600;">
+                        Click the button to see how much I love you! 👇
+                    </p>
+                    
+                    <button class="rate-btn" onclick="rateLove()">💖 Calculate Love 💖</button>
+                    
+                    <div class="meter-container">
+                        <div class="meter-fill" id="meterFill" style="width: 0%;">
+                            <span id="percentage">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="meter-result" id="meterResult"></div>
+                </div>
+
+                <div class="gif-container" style="margin-top: 30px;">
+                    <img src="https://media.giphy.com/media/LOWguhjp3WM4w/giphy.gif" alt="Love meter GIF" style="max-width: 350px;">
+                </div>
+            </section>
+
+            <!-- Final Message -->
+            <section class="section">
+                <h2>💝 My Promise to You 💝</h2>
+                <div class="emoji-line">🌹 💑 🌹</div>
+                
+                <div class="message-box">
+                    <p><strong>Every day with you feels like Valentine's Day! 💕</strong></p>
+                    <p>You make my world brighter, my heart fuller, and my smile wider. </p>
+                    <p>I'm so grateful to have you in my life! 🌟</p>
+                    <p>Here's to many more adventures, laughs, and love together! 🥂</p>
+                </div>
+
+                <div class="gif-container" style="margin-top: 30px;">
+                    <img src="https://media.giphy.com/media/3o7qDSOvfaCO9b3MlO/giphy.gif" alt="Couple GIF">
+                </div>
+
+                <div class="cheesy-line" style="margin-top: 30px; font-size: 1.5em;">
+                    "I love you to the moon and back! 🌙💫"
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made with 💖 just for you!</p>
+            <p class="emoji-line">✨ 💕 ✨</p>
+        </footer>
     </div>
-</section>
 
-<!-- LEARNING JOURNEY SECTION -->
-<section class="journey">
-    <h2>My Learning Journey</h2>
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartBg = document.getElementById('heartBg');
+            const hearts = ['💕', '💖', '💗', '💝', '💘', '❤️', '🌹'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 5 + 10) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heartBg.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 15000);
+            }, 800);
+        }
 
-    <div class="projects">
-        <div class="card">
-            <a href="Lecture-2/">
-                <h3>Lecture 1</h3>
-                <p>HTML basics and tags</p>
-                <span>HTML Fundamentals</span>
-            </a>
-        </div>
+        // Quiz functionality
+        function answerQuiz(questionNum, answer) {
+            const result = document.getElementById('result' + questionNum);
+            
+            const responses = {
+                1: {
+                    yes: "That's right! You're absolutely stunning! 😍✨",
+                    no: "Well, let me tell you - you ARE! Inside and out! 💖🌟"
+                },
+                2: {
+                    cuddles: "Our cuddles are the BEST! So warm and cozy! 🤗💕",
+                    laughs: "I love making you laugh! Your smile lights up my world! 😂✨",
+                    adventures: "Every adventure with you is magical! 🌍💖",
+                    everything: "YES! Everything about us is perfect! 💯💕"
+                },
+                3: {
+                    yes: "YES! That's the only answer I wanted to hear! 💍💕",
+                    no: "I'll ask again tomorrow... and the next day... and the next! 😘"
+                },
+                4: {
+                    movie: "Perfect! I'll get the popcorn ready! 🎬🍿",
+                    dinner: "Fancy dinner it is! You deserve the best! 🍝🥂",
+                    adventure: "Let's explore the world together! 🏞️🌟",
+                    cozy: "Netflix and cuddles? Count me in! 🏠💕"
+                },
+                5: {
+                    yes: "Perfect! Our love is infinite! 💗∞",
+                    no: "That's okay, I love you enough for both of us! 💝💝"
+                },
+                6: {
+                    'heart-eyes': "We're totally heart-eyes worthy! 😍💕",
+                    fire: "We're absolutely on FIRE! 🔥❤️",
+                    stars: "Our love is pure magic! ✨💫",
+                    perfect: "100% PERFECT together! 💯💖"
+                }
+            };
+            
+            result.textContent = responses[questionNum][answer];
+            result.classList.add('show');
+            
+            // Trigger confetti effect for positive answers
+            createConfetti();
+        }
 
-        <div class="card">
-            <a href="Lecture-3/">
-                <h3>Lecture 2</h3>
-                <p>CSS basics, colors, fonts & layouts.</p>
-                <span>CSS Fundamentals</span>
-            </a>
-        </div>
+        // Rating input handlers
+        function checkLoveRating() {
+            const rating = document.getElementById('loveRating').value;
+            const result = document.getElementById('loveRatingResult');
+            
+            if (rating === '') {
+                result.textContent = "Please enter a number! 💕";
+                result.classList.add('show');
+                return;
+            }
+            
+            const num = parseInt(rating);
+            
+            if (num >= 8) {
+                result.textContent = `${num}? That's amazing! I love you ${num} million times more! 💖✨`;
+            } else if (num >= 5) {
+                result.textContent = `${num}? That's sweet! But I love you a 9! 💕`;
+            } else {
+                result.textContent = `Only ${num}? Let me work harder to earn a 9! 🥺💝`;
+            }
+            
+            result.classList.add('show');
+            createConfetti();
+        }
 
-        <div class="card">
-            <a href="Lecture-4/">
-                <h3>Lecture 3</h3>
-                <p>More about attributes and css</p>
-                <span>Layout Design</span>
-            </a>
-        </div>
+        function checkKissRating() {
+            const rating = document.getElementById('kissRating').value;
+            const result = document.getElementById('kissRatingResult');
+            
+            if (rating === '') {
+                result.textContent = "Rate it please! 💋";
+                result.classList.add('show');
+                return;
+            }
+            
+            const num = parseInt(rating);
+            
+            if (num >= 8) {
+                result.textContent = `${num}! I remember it like yesterday... Best moment ever! 💋✨`;
+            } else if (num >= 5) {
+                result.textContent = `${num}? The next one will be a 9, I promise! 😘`;
+            } else {
+                result.textContent = `We should practice more then! 😉💕`;
+            }
+            
+            result.classList.add('show');
+            createConfetti();
+        }
 
-        <div class="card">
-            <a href="Lecture-5/">
-                <h3>Lecture 4</h3>
-                <p>Basics JSS</p>
-                <span>Table creation</span>
-            </a>
-        </div>
-    </div>
-</section>
+        function checkCuteRating() {
+            const rating = document.getElementById('cuteRating').value;
+            const result = document.getElementById('cuteRatingResult');
+            
+            if (rating === '') {
+                result.textContent = "Don't be shy! Rate us! 🥰";
+                result.classList.add('show');
+                return;
+            }
+            
+            const num = parseInt(rating);
+            
+            if (num >= 8) {
+                result.textContent = `${num}! We're ADORABLE together! Everyone's jealous! 💑✨`;
+            } else if (num >= 5) {
+                result.textContent = `${num}? I think we're at least a 9! We're the cutest! 😊💕`;
+            } else {
+                result.textContent = `Really? I think we're super cute together! 🥺💝`;
+            }
+            
+            result.classList.add('show');
+            createConfetti();
+        }
 
-<section>
-    <h2>Projects</h2>
-    <div class="projects">
-        <div class="card">
-            <h3>Calculator</h3>
-            <p>Stylish calculator using HTML, CSS & JavaScript.</p>
-        </div>
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>Personal responsive portfolio webpage.</p>
-        </div>
-        <div class="card">
-            <h3>Mini Tools</h3>
-            <p>Small utility tools for daily tasks.</p>
-        </div>
-    </div>
-</section>
+        function checkMissRating() {
+            const rating = document.getElementById('missRating').value;
+            const result = document.getElementById('missRatingResult');
+            
+            if (rating === '') {
+                result.textContent = "Tell me how much! 💔";
+                result.classList.add('show');
+                return;
+            }
+            
+            const num = parseInt(rating);
+            
+            if (num >= 8) {
+                result.textContent = `${num}! I miss you SO much too! Can't wait to see you! 😢💕`;
+            } else if (num >= 5) {
+                result.textContent = `${num}? I'm at a 9! Missing you every second! 💔✨`;
+            } else {
+                result.textContent = `Only ${num}? That hurts! Just kidding, I love you! 😊💝`;
+            }
+            
+            result.classList.add('show');
+            createConfetti();
+        }
 
-<section class="contact">
-    <h2>Contact Me</h2>
-    <a href="mailto:yourmail@gmail.com">Email</a>
-    <a href="https://github.com/" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-</section>
+        // Love meter functionality
+        function rateLove() {
+            const meterFill = document.getElementById('meterFill');
+            const percentage = document.getElementById('percentage');
+            const meterResult = document.getElementById('meterResult');
+            
+            // Spoiler: it's always 100%!
+            const targetPercentage = 100;
+            let currentPercentage = 0;
+            
+            const interval = setInterval(() => {
+                if (currentPercentage >= targetPercentage) {
+                    clearInterval(interval);
+                    meterResult.textContent = "💯 INFINITE LOVE! My love for you knows no bounds! 💕✨";
+                    meterResult.classList.add('show');
+                    createConfetti();
+                } else {
+                    currentPercentage += 2;
+                    meterFill.style.width = currentPercentage + '%';
+                    percentage.textContent = currentPercentage + '%';
+                }
+            }, 30);
+        }
 
-<footer>
-    © 2026 Pankaj Kumar | All Rights Reserved
-</footer>
+        // Simple confetti effect
+        function createConfetti() {
+            const confettiColors = ['#FF6B9D', '#FFC2D1', '#FFE5EC', '#C85A8E', '#FF1744'];
+            const confettiEmojis = ['💕', '💖', '💗', '✨', '⭐', '💝'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-50px';
+                    confetti.style.fontSize = '25px';
+                    confetti.style.zIndex = '9999';
+                    confetti.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+                    confetti.style.animation = 'confettiFall 3s linear';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 100);
+            }
+        }
 
+        // Add confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confettiFall {
+                to {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize floating hearts
+        createFloatingHearts();
+    </script>
 </body>
 </html>
-
-
